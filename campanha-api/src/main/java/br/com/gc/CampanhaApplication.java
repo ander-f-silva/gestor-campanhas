@@ -3,6 +3,7 @@ package br.com.gc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 import org.springframework.jms.annotation.EnableJms;
@@ -20,6 +21,7 @@ import javax.jms.ConnectionFactory;
  */
 @SpringBootApplication
 @EnableReactiveMongoRepositories
+@EnableEurekaClient
 public class CampanhaApplication {
 
 	public static void main(String[] args) {

@@ -7,3 +7,8 @@ default:
 
 queue:
   campanha: campanha-queue
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:90821/eureka/
