@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ExecutorFullTestsITs">
+
+    <test name="ExecutorTests" junit="true">
+        <classes>
+            <class name="br.com.gc.campanha.ValidadorTest" />
+            <class name="br.com.gc.campanha.CampanhaVigenteTest" />
+        </classes>
+    </test>
+
+    <test name="ExecutorITs">
+        <classes>
+            <class name="br.com.gc.campanha.CampanhaControllerIT" />
+        </classes>
+    </test>
+
+</suite>
+

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: configuracao
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ander-f-silva/gestor-campanhas
+          searchPaths: configuracao
