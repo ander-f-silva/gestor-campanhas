@@ -16,7 +16,7 @@ public class MensageriaConfiguracao {
     @Value("${default.brocker.url}")
     private String defaultBrokerUrl;
 
-    @Value("${queue.camapanha}")
+    @Value("${queue.campanha}")
     public String queueCampanha;
 
     /**

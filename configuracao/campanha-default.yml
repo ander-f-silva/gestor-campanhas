@@ -6,4 +6,4 @@ default:
     url: vm://localhost?broker.persistent=false
 
 queue:
-  camapanha: campanha-queue
+  campanha: campanha-queue

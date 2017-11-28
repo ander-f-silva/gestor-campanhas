@@ -4,6 +4,7 @@ import br.com.gc.campanha.domain.Campanha;
 import br.com.gc.campanha.domain.Notificacao;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
@@ -14,12 +15,12 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@AllArgsConstructor
 public class Notificador {
 
-    @Value("${queue.camapanha}")
+    @Value("${queue.campanha}")
     public String queueCampanha;
 
+    @Autowired
     private JmsTemplate jmsTemplate;
 
     /**
