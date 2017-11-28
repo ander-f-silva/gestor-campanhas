@@ -22,11 +22,9 @@ public class Notificador {
 
     private NotificacaoRepository notificacaoRepository;
 
-    @JmsListener(destination = "campanha-fila")
-    public void mensagemRecebidas(@Payload Campanha campanha,
-                               @Headers MessageHeaders headers,
-                               Message message, Session session) {
-
-       notificacaoRepository.save(new Notificacao<Campanha>(campanha, LocalDate.now()));
+    @JmsListener(destination = "campanha-queue")
+    public void mensagemRecebidas(@Payload Campanha campanha, @Headers MessageHeaders headers, Message message, Session session) {
+        log.info("Salvando uma nova campanha que foi atualizada");
+        notificacaoRepository.save(new Notificacao<Campanha>(campanha, LocalDate.now()));
     }
 }

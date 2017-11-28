@@ -23,24 +23,7 @@ import javax.jms.ConnectionFactory;
 @EnableReactiveMongoRepositories
 @EnableFeignClients
 @EnableCircuitBreaker
-@EnableJms
 public class SocioTorcedorApplication {
-
-	@Bean
-	public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
-													DefaultJmsListenerContainerFactoryConfigurer configurer) {
-		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		configurer.configure(factory, connectionFactory);
-		return factory;
-	}
-
-	@Bean
-	public MessageConverter jacksonJmsMessageConverter() {
-		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-		converter.setTargetType(MessageType.TEXT);
-		converter.setTypeIdPropertyName("_type");
-		return converter;
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SocioTorcedorApplication.class, args);
