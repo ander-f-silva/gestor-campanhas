@@ -19,7 +19,7 @@ public class CampanhaClientFallback implements CampanhaClient {
      * @return lista vazia de campanhas
      */
     @Override
-    public List<Campanha> getCampanhasVigentes(String timeCoracaoId) {
+    public List<Campanha> pesquisa(String timeCoracaoId) {
         return new ArrayList<>();
     }
 }
