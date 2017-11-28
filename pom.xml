@@ -12,7 +12,7 @@
     <description>Gestor de projetos</description>
 
     <modules>
-        <module>campanhas-api</module>
+        <module>campanha-api</module>
         <module>socio-torcedor-api</module>
     </modules>
 

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.gc.campanhas</groupId>
-    <artifactId>campanhas-api</artifactId>
+    <artifactId>campanha-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>campanhas-api</name>
+    <name>campanha-api</name>
     <description>campanhas api -manipula os dados da campanha</description>
 
     <parent>
@@ -60,10 +60,6 @@
             <artifactId>activemq-broker</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -77,12 +73,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.9.8</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.gatling.highcharts</groupId>
-            <artifactId>gatling-charts-highcharts</artifactId>
-            <version>2.2.5</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
