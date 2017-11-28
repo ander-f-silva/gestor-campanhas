@@ -1,9 +1,6 @@
 spring:
   application:
-    name: configuracao
+    name: registro
   cloud:
     config:
-      server:
-        git:
-          uri: https://github.com/ander-f-silva/gestor-campanhas
-          searchPaths: configuracao
+      uri: http://localhost:8888

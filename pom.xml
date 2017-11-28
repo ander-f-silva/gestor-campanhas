@@ -13,6 +13,7 @@
 
     <modules>
         <module>servidor-configuracao</module>
+        <module>servidor-registro</module>
         <module>campanha-api</module>
         <module>socio-torcedor-api</module>
     </modules>
