@@ -1,6 +1,7 @@
 package br.com.gc.campanha.component;
 
 import br.com.gc.campanha.domain.Campanha;
+import br.com.gc.campanha.domain.Notificacao;
 import br.com.gc.campanha.domain.TimeCoracao;
 import br.com.gc.campanha.repository.CampanhaRepository;
 import br.com.gc.campanha.domain.MeuTimeCoracao;
@@ -61,7 +62,7 @@ public class CampanhaVigente {
                     campanhaExistente.adicionarUmDiaParaDataFinal(campanhaAtual);
                     campanhasAtualizadas.add(campanhaExistente);
                     modelMapper.map(campanhaExistente, campanhaAtual);
-                    notificador.enviar(campanhaExistente);
+                    notificador.enviar(new Notificacao<Campanha>(campanhaExistente, LocalDate.now()));
                 }
         );
 

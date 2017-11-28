@@ -1,9 +1,10 @@
 package br.com.gc.campanha.component;
 
-import br.com.gc.campanha.MensageriaConfiguracao;
 import br.com.gc.campanha.domain.Campanha;
+import br.com.gc.campanha.domain.Notificacao;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +17,17 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class Notificador {
 
+    @Value("${queue.camapanha}")
+    public String queueCampanha;
+
     private JmsTemplate jmsTemplate;
 
     /**
-     * Método para enviar o
-     * @param campanha
+     * Método para enviar as campanhas alteradas para fila
+     * @param notificacao
      */
-    public void enviar (Campanha campanha) {
+    public void enviar (Notificacao<Campanha> notificacao) {
         log.info("Notificar campanha modificada");
-        jmsTemplate.convertAndSend(MensageriaConfiguracao.CAMPANHA_QUEUE, campanha);
+        jmsTemplate.convertAndSend(queueCampanha, notificacao);
     }
 }

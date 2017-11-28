@@ -9,9 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * Interface para consumir os serviços da api de campanha
+ */
 @FeignClient(name = "campanhaClient", url = "http://localhost:9080", fallback = CampanhaClientFallback.class)
 public interface CampanhaClient {
 
+    /**
+     * Método responsavel por pesquisar as campanhas vigentes pelo id do time do coração
+     * @param timeCoracaoId
+     * @return lista de campanhas
+     */
     @RequestMapping(value = "/api/v1/campanhas/time-coracao/{timeCoracaoId}", method = RequestMethod.GET)
     List<Campanha> getCampanhasVigentes(@PathVariable("timeCoracaoId") String timeCoracaoId);
 

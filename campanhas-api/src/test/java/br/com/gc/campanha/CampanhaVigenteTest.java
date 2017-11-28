@@ -3,6 +3,7 @@ package br.com.gc.campanha;
 import br.com.gc.campanha.component.CampanhaVigente;
 import br.com.gc.campanha.component.Notificador;
 import br.com.gc.campanha.domain.Campanha;
+import br.com.gc.campanha.domain.Notificacao;
 import br.com.gc.campanha.domain.TimeCoracao;
 import br.com.gc.campanha.repository.CampanhaRepository;
 import br.com.gc.campanha.domain.MeuTimeCoracao;
@@ -52,7 +53,7 @@ public class CampanhaVigenteTest {
 
         given(repository.saveAll(any(List.class))).willReturn(TestFactory.retornarCampanhasAtivasParaSalvar());
 
-        doNothing().when(notificador).enviar(any(Campanha.class));
+        doNothing().when(notificador).enviar(any(Notificacao.class));
 
         Campanha campanha = new Campanha();
 

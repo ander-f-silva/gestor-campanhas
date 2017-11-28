@@ -1,30 +1,45 @@
 package br.com.gc.campanha;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 
+/***
+ * Classe responsavel carregar as configurações para enviar dados para fila, no caso esta sendo usado
+ * em MOCK (memória)
+ */
 @Configuration
 public class MensageriaConfiguracao {
 
-    private static final String DEFAULT_BROKER_URL = "vm://localhost?broker.persistent=false";
+    @Value("${default.brocker.url}")
+    private String defaultBrokerUrl;
 
-    public static final String CAMPANHA_QUEUE = "campanha-queue";
+    @Value("${queue.camapanha}")
+    public String queueCampanha;
 
+    /**
+     * Constroi a instacia para carregar o active MQ na memória
+     * @return objeto de conexão
+     */
     @Bean
     public ActiveMQConnectionFactory connectionFactory(){
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-        connectionFactory.setBrokerURL(DEFAULT_BROKER_URL);
+        connectionFactory.setBrokerURL(defaultBrokerUrl);
         return connectionFactory;
     }
 
+    /**
+     * Template do JMS com as configurações da fila
+     * @return objeto para gerenciar envio ou recebimento dos dados na fila
+     */
     @Bean
     public JmsTemplate jmsTemplate(){
         JmsTemplate template = new JmsTemplate();
         template.setPubSubDomain(true);
         template.setConnectionFactory(connectionFactory());
-        template.setDefaultDestinationName(CAMPANHA_QUEUE);
+        template.setDefaultDestinationName(queueCampanha);
         return template;
     }
 

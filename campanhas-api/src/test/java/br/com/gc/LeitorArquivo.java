@@ -7,6 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Classe responsavel por fazer a leitura dos arquivos json
+ */
 public class LeitorArquivo {
 
     public <T> T converterJsonToClass(String file, Class<T> clazz) throws IOException {
