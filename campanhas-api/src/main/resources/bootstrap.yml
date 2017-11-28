@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cammpanha
+    name: campanha
   cloud:
     config:
       env: default
