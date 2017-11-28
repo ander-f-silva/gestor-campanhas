@@ -1,3 +1,6 @@
+server:
+  port: 9080
+
 spring:
   activemq:
       broker-url: vm://localhost?broker.persistent=false,useShutdownHook=false
