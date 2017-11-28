@@ -11,4 +11,4 @@ queue:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:90821/eureka/
+      defaultZone: http://localhost:9082/eureka/
