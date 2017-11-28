@@ -1,0 +1,9 @@
+server:
+  port: 9080
+
+default:
+  brocker:
+    url: vm://localhost?broker.persistent=false
+
+queue:
+  campanha: campanha-queue
