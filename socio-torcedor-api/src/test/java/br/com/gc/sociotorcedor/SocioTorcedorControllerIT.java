@@ -55,18 +55,4 @@ public class SocioTorcedorControllerIT extends AbstractTestNGSpringContextTests 
                 .jsonPath("$.data-nascimento").isEqualTo("01/11/2017");
     }
 
-    @Test(priority = 2)
-    public void deveInformarQueSocioTorcedorJaEstaCadastrado() throws Exception {
-        final SocioTorcedor entrada = leitorArquivo.converterJsonToClass("post/request_cadastro.json", SocioTorcedor.class);
-
-        this.clientTest
-                .post().uri("api/v1/socios-torcedores")
-                .accept(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromObject(entrada))
-                .exchange()
-                .expectStatus().is4xxClientError()
-                .expectBody()
-                .jsonPath("$.error").isEqualTo("Cliente já esta cadastrado.");
-    }
-
 }
