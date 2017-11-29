@@ -11,11 +11,40 @@
     <name>gestor-campanhas</name>
     <description>Gestor de projetos</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
     <modules>
         <module>servidor-configuracao</module>
         <module>servidor-registro</module>
         <module>campanha-api</module>
         <module>socio-torcedor-api</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <format>xml</format>
+                    <maxmem>256m</maxmem>
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.3.0</version>
+                <configuration>
+                    <repoToken>fnPiVZfbAYi5ulslhbqFD6xn1VFILSGLG</repoToken>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
