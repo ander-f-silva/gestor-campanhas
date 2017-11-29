@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+default:
+  brocker:
+    url: vm://localhost?broker.persistent=false
+
+queue:
+  campanha: campanha-queue
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9082/eureka/

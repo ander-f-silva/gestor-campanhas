@@ -1,0 +1,31 @@
+{
+  "id": "5a1f058da0240f17318dad72",
+  "nome": "Anderson Silva",
+  "email": "infoander@gmail.com",
+  "data-nascimento": "01/11/2017",
+  "time-coracao": {
+    "id": "597f6269cce6ff5251a9da0f"
+  },
+  "campanhas": [
+    {
+      "id": "5a1f0597a0240f176b29218a",
+      "nome": "Campanha4",
+      "time-coracao": {
+        "id": "597f6269cce6ff5251a9da0f",
+        "meuTimeCoracao": "SAO_PAULO"
+      },
+      "data-inicio-vigencia": "01/09/2017",
+      "data-fim-vigencia": "11/12/2018"
+    },
+    {
+      "id": "5a1f05a1a0240f176b29218b",
+      "nome": "Campanha4",
+      "time-coracao": {
+        "id": "597f6269cce6ff5251a9da0f",
+        "meuTimeCoracao": "SAO_PAULO"
+      },
+      "data-inicio-vigencia": "01/09/2017",
+      "data-fim-vigencia": "10/12/2018"
+    }
+  ]
+}

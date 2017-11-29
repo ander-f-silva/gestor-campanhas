@@ -50,18 +50,15 @@ public class SocioTorcedorService {
             return  socioTorcedorRepository.save(socioTorcedorCadastrado);
 
         } else {
-            List<Campanha> campanhas = campanhaClient.pesquisa(socioTorcedor.getTimeCoracao().getId());
+            final String idTimeCoracao = socioTorcedor.getTimeCoracao().getId();
+
+            List<Campanha> campanhas = campanhaClient.pesquisa(idTimeCoracao);
 
             socioTorcedor.setCampanhas(campanhas);
 
-            Mono<SocioTorcedor> socioTorcedorMono =  socioTorcedorRepository.save(socioTorcedor);
+            socioTorcedor.setTimeCoracao(new TimeCoracao(idTimeCoracao, MeuTimeCoracao.get(idTimeCoracao)));
 
-            return socioTorcedorMono.map( st -> {
-                        String idTimeCoracao = socioTorcedor.getTimeCoracao().getId();
-                        st.setTimeCoracao(new TimeCoracao(idTimeCoracao, MeuTimeCoracao.get(idTimeCoracao)));
-                        return st;
-                    }
-            );
+           return socioTorcedorRepository.save(socioTorcedor);
         }
     }
 

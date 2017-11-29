@@ -2,7 +2,11 @@
 
 <suite name="ExecutorFullTestsITs">
 
-
+    <test name="ExecutorITs">
+        <classes>
+            <class name="br.com.gc.sociotorcedor.SocioTorcedorControllerIT" />
+        </classes>
+    </test>
 
 </suite>
 
