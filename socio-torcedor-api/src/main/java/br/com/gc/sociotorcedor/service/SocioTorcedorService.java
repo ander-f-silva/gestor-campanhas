@@ -43,14 +43,14 @@ public class SocioTorcedorService {
                 throw new EmailCadastradoException();
             }
 
-            List<Campanha> campanhas = campanhaClient.pesquisa(socioTorcedorCadastrado.getId());
+            List<Campanha> campanhas = campanhaClient.pesquisa(socioTorcedorCadastrado.getTimeCoracao().getId());
 
             socioTorcedorCadastrado.setCampanhas(campanhas);
 
             return  socioTorcedorRepository.save(socioTorcedorCadastrado);
 
         } else {
-            List<Campanha> campanhas = campanhaClient.pesquisa(socioTorcedor.getId());
+            List<Campanha> campanhas = campanhaClient.pesquisa(socioTorcedor.getTimeCoracao().getId());
 
             socioTorcedor.setCampanhas(campanhas);
 
