@@ -70,23 +70,26 @@ cd ./gestor-campanhas && mvn clean package -DskipTests
 
 Acesso o navegador e digite http://localhost:9082
 ```
-4) Abrir outro terminal e abrir o diretório campanha-api:
+
+4) Abrir outro terminal e abrir o diretório gestor-campanhas:
+
+``` 
+cd ./gestor-campanhas && mvn test
+```
+
+5) Abrir outro terminal e abrir o diretório campanha-api:
 
 ``` 
  cd ./campanha-api && mvn spring-boot:run
 ```
 
-5) Abrir outro terminal e abrir o diretório socio-torcedor-api:
+6) Abrir outro terminal e abrir o diretório socio-torcedor-api:
 
 ``` 
  cd ./socio-torcedor-api && mvn spring-boot:run
 ```
 
-6) Abrir outro terminal e abrir o diretório gestor-campanhas:
 
-``` 
-cd ./gestor-campanhas && mvn test
-```
 
 ## Passos para construção dos projetos
 

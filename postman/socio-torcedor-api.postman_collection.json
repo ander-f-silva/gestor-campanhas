@@ -1,0 +1,44 @@
+{
+	"id": "4e0da92f-3a86-72da-16b9-cb50daac14cd",
+	"name": "socio-torcedor-api",
+	"description": "CRUD de campanhas",
+	"order": [
+		"a9b69fe2-1f09-d182-4424-82c28c9e5518"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1510103704830,
+	"owner": "546579",
+	"public": false,
+	"requests": [
+		{
+			"id": "a9b69fe2-1f09-d182-4424-82c28c9e5518",
+			"headers": "Content-Type: application/json;charset=UTF-8\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json;charset=UTF-8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{socio-torcedor-host}}/api/v1/socios-torcedores",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1511988435332,
+			"name": "incluir",
+			"description": "",
+			"collectionId": "4e0da92f-3a86-72da-16b9-cb50daac14cd",
+			"rawModeData": "{\n\"nome\":\"Anderson Silva\",\n\"email\":\"infoander2@gmail.com\",\n\"time-coracao\": {\n\t\"id\":\"597f6269cce6ff5251a9da0f\"\n},\n\"data-nascimento\":\"27/11/1987\"\n}"
+		}
+	]
+}
