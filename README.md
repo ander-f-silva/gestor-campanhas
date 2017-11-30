@@ -1,7 +1,7 @@
 # Projeto Gestor de campanhas
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/24755ef707014807b75950e4aa23141d)](https://www.codacy.com/app/ander-f-silva/missao-marte?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ander-f-silva/missao-marte&amp;utm_campaign=Badge_Grade)
-[![Coverage Status](https://coveralls.io/repos/github/ander-f-silva/missao-marte/badge.svg)](https://coveralls.io/github/ander-f-silva/missao-marte)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f99952dce79f46cd816e5f2b2815588c)](https://www.codacy.com/app/ander-f-silva/gestor-campanhas?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ander-f-silva/gestor-campanhas&amp;utm_campaign=Badge_Grade)
+[![Coverage Status](https://coveralls.io/repos/github/ander-f-silva/gestor-campanhas/badge.svg?branch=master)](https://coveralls.io/github/ander-f-silva/gestor-campanhas?branch=master)
 
 Projeto responsável pelas apis que irão gerenciar os dados das campanhas e dos sócios torcedores.
 
