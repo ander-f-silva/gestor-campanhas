@@ -1,13 +1,14 @@
-# Projeto Gestor de campanhas
+# Projeto Gestor de Campanhas
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f99952dce79f46cd816e5f2b2815588c)](https://www.codacy.com/app/ander-f-silva/gestor-campanhas?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ander-f-silva/gestor-campanhas&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/ander-f-silva/gestor-campanhas/badge.svg?branch=master)](https://coveralls.io/github/ander-f-silva/gestor-campanhas?branch=master)
 
-Projeto responsável pelas apis que irão gerenciar os dados das campanhas e dos sócios torcedores.
+As tarefas 1 e 2 são projetos para gerencias os micro serviços de **campanha** e **sócio torcedor**
+e as demais tarefas estarão na Wiki.
 
 ## Tecnologias utilizadas
 
-* Linguagem Java - Versão 1.8 (Oracle 1.8.0_121)
+* Linguagem de Programação Java;
 
 ```
 java version "1.8.0_121"
@@ -15,7 +16,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
 ```
 
-* Maven 3 - Ferramenta de Build
+* Ferramenta de Build e Gestão de Dependências Maven ;
 
 ```
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T14:41:47-02:00)
@@ -26,55 +27,81 @@ Default locale: pt_BR, platform encoding: UTF-8
 OS name: "linux", version: "4.6.0-040600-lowlatency", arch: "amd64", family: "unix"
 ```
 
-O maven esta embarcado com o projeto, basta utilizar os comandos 
-
-* Spring Boot - Framerwork Web para geração das API's (versão 2.0.0) com Netty
-
-O repositório utilizado é o Github, onde utilizei o Git flow com a branch develop e master para gerenciar o fonte.
-
-Para solucionar os dois primeiros problemas para ganhar escalabilidade e independência entreos as apis, adotei como arquitetura
-o modelo arquitetural Microserviços, a forma de programar com modelo reativo (orientado a eventos, assincrono).
-
-Vejo que apis de campanha e socio torcedor precisavam desta solução, pois se api campanha estiver fora do ar, é possivel manter a api 
-de sócio torcedor.
-
-Para persistencia estou utilizando banco NOSQL Mongo embarcado (esta funcionando em memória) para cada api, 
-o serviço de notificações usei o fila ampq (também em memória)
-
-Utilizei o framerk Junit (sufixo Test) para os teste unitários e TestNg (sufixo IT) para o teste integrado.
-
-
-* Motivaçções sobre o Framework Spring
-
-Utilizei este framework por estar maduro para desenlvolver aplicações na arquitetura de Microserviços (por ter o container integrado)
-e por ter várias soluções para integrar com banco de dados (relacional), serviço de menssageria, uma stack forte para serviço de cloud e 
-por ser muito facil para montar uma e usar os frameworks de teste.
-
-## Para realizar o build, teste unitários e iniciar o software
-
-Para realizar o build do projeto e realizar somente os testes unitários execute o comando:
+* Framerwork Web Spring (Boot, Cloud, Netfilx OSS , Data e React);
 
 ```
-mvn clean package
+Para solucionar os dois primeiros problemas adotei como arquitetura o modelo Micro Serviços, pois os serviços precisavam ser autônomos. Tanto que cadas serviço possui seu próprio container e banco.
+
+Nesta solução caso o serviço de campanha esteja fora do ar, o serviço de sócio torcedor não será afetado.
 ```
 
-Para iniciar o software: 
+* Banco de Dados No Sql Mongo Mock (embarcado e armazenamento em memória);
 
-Acessar a pasta ./gestor-campanhas/campanhas-api e digitar o comando abaixo de depois acessar
-./gestor-campanhas/socio-torcedor-api
+* Serviço de Mensageria Active MQ (embarcado e armazenamento em memória);
 
+* Frameworks de Testes são Junit (sufixo Test) para os teste unitários e TestNg (sufixo IT) para o teste integrado;
+
+## Para realizar teste, construção e publicação
+```
+Importante mencionar que criei dois serviços extras, um para centralizar as configurações através de um container e outro para registrar os serviços que estão disponíveis:
+
+1) servico-configuracao -> serviço de middleware para apontar para um repositório com arquivos de configuração dos micro serviços;
+
+2) servico-registro -> serviço que registras os micro serviços atraveś do Netflix Eureka Server. Ao subir o projeto acesso http://localhost:9082.
+```
+
+Passos:
+
+Observação:  Caso não tenha o maven instalado use o wrapper que se encontra na raiz do projeto (./mvnw) 
+
+1) Abrir o terminal e  digitar o comando para realizar o build:
+```
+cd ./gestor-campanhas && mvn clean package -DskipTests 
+```
+
+2) Abrir a diretório servico-configuracao:
+``` 
+ cd ./servidor-configuracao && mvn spring-boot:run
+```
+
+3) Abrir outro terminal e abrir o diretório servico-registro :
+``` 
+ cd ./servidor-registro && mvn spring-boot:run
+
+Acesso o navegador e digite http://localhost:9082
+```
+4) Abrir outro terminal e abrir o diretório campanha-api:
 
 ``` 
-mvn spring-boot:run
+ cd ./campanha-api && mvn spring-boot:run
 ```
 
-## Gestão do Projeto e técnicas para construção da API
+5) Abrir outro terminal e abrir o diretório socio-torcedor-api:
 
-Não precisei usar Kaban paraa administrar as atividades, tendo conhecimento do problema.
+``` 
+ cd ./socio-torcedor-api && mvn spring-boot:run
+```
+
+6) Abrir outro terminal e abrir o diretório gestor-campanhas:
+
+``` 
+cd ./gestor-campanhas && mvn test
+```
+
+## Passos para construção dos projetos
 
 Mas as etapas foram:
 
 * Passo 0: Criação do projeto no https://start.spring.io/
 * Passo 1: Contrução das classes de dominio;
-* Passo 2: Construção dos testes unitários;
+* Passo 2: Construção dos testes unitários e integrados;
 * Passo 3: Construção da API e mecanismo para armazenar os dados;
+
+
+## Informações gerais
+
+Importe os projetos para testar a api no Postman (https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+
+Direitório: postman
+
+Para maiores detalhes das outras atividades acesse o Wiki.
